@@ -1,0 +1,21 @@
+name: SonarQube Scan
+
+on: push
+
+jobs:
+
+  sonar:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - name: SonarQube Scan
+
+        run: |
+
+          docker run --rm -v "$(pwd):/usr/src" sonarsource/sonar-scanner-cli
+
+
