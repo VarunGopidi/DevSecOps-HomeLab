@@ -21,5 +21,5 @@ jobs:
             -Dsonar.projectKey=homelab \
             -Dsonar.sources=/usr/src \
             -Dsonar.host.url=http://localhost:9000 \
-            -Dsonar.login=${{ sqa_34546a84c93b78f4ece1e55a40e8b16857e533d7 }}
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
