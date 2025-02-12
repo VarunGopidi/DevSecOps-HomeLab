@@ -18,4 +18,4 @@ jobs:
 
           docker run --rm -v "$(pwd):/usr/src" sonarsource/sonar-scanner-cli
 
-
+sqa_34546a84c93b78f4ece1e55a40e8b16857e533d7
