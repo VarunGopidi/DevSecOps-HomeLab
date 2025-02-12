@@ -1,21 +1,25 @@
 name: SonarQube Scan
 
-on: push
+on: 
+  push:
+    branches:
+      - main  # Run only on main branch (modify if needed)
 
 jobs:
-
   sonar:
-
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: actions/checkout@v2
-
-      - name: SonarQube Scan
-
+      - name: Run SonarQube Scan
         run: |
+          docker run --rm \
+            -v "$(pwd):/usr/src" \
+            sonarsource/sonar-scanner-cli \
+            -Dsonar.projectKey=homelab \
+            -Dsonar.sources=/usr/src \
+            -Dsonar.host.url=http://localhost:9000 \
+            -Dsonar.login=${{ sqa_34546a84c93b78f4ece1e55a40e8b16857e533d7 }}
 
-          docker run --rm -v "$(pwd):/usr/src" sonarsource/sonar-scanner-cli
-
-sqa_34546a84c93b78f4ece1e55a40e8b16857e533d7
