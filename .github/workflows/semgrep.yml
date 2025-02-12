@@ -13,7 +13,7 @@ jobs:
         run: |
           semgrep --config=auto --json > semgrep-results.json
       - name: Upload Semgrep Results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: semgrep-results
           path: semgrep-results.json
